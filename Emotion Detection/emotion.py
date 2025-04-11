@@ -32,7 +32,7 @@ while True:
         # result = DeepFace.analyze(face_roi, actions=['emotion'], enforce_detection=False)
         # emotion = result[0]['dominant_emotion']
 
-        allowed_emotions = ['happy', 'sad', 'angry', 'neutral']
+        allowed_emotions = ['happy', 'angry', 'neutral']
         # Analyze with DeepFace
         result = DeepFace.analyze(face_roi, actions=['emotion'], enforce_detection=False)
         # Get emotion predictions dictionary
