@@ -29,10 +29,18 @@ while True:
 
         
         # Perform emotion analysis on the face ROI
-        result = DeepFace.analyze(face_roi, actions=['emotion'], enforce_detection=False)
+        # result = DeepFace.analyze(face_roi, actions=['emotion'], enforce_detection=False)
+        # emotion = result[0]['dominant_emotion']
 
-        # Determine the dominant emotion
-        emotion = result[0]['dominant_emotion']
+        allowed_emotions = ['happy', 'sad', 'angry', 'neutral']
+        # Analyze with DeepFace
+        result = DeepFace.analyze(face_roi, actions=['emotion'], enforce_detection=False)
+        # Get emotion predictions dictionary
+        emotion_predictions = result[0]['emotion']
+        # Filter out unwanted emotions
+        filtered_emotions = {k: v for k, v in emotion_predictions.items() if k in allowed_emotions}
+        # Determine the dominant emotion among the allowed ones
+        emotion = max(filtered_emotions, key=filtered_emotions.get)
 
         # Draw rectangle around face and label with predicted emotion
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
