@@ -48,12 +48,12 @@ Additional Information Questions:
 # json_input = """
 # {
 #   "responses": {
-#     "space_exploration": 8,
-#     "scientific_experiments": 6,
-#     "helping_others": 9,
-#     "patience": 8,
-#     "creativity": 6,
-#     "empathy": 9
+#     "space_exploration": 10,
+#     "scientific_experiments": 10,
+#     "helping_others": 7.5,
+#     "patience": 2.5,
+#     "creativity": 10,
+#     "empathy": 7.5
 #   },
 #   "additional_info": {
 #     "favorite_subjects": ["Science", "Mathematics"],
@@ -65,16 +65,16 @@ Additional Information Questions:
 json_input = """
 {
   "responses": {
-    "space_exploration": 7.5,
+    "space_exploration": 10,
     "scientific_experiments": 10,
     "helping_others": 7.5,
-    "patience": 5,
+    "patience": 2.5,
     "creativity": 10,
-    "empathy": 2.5
+    "empathy": 7.5
   },
   "additional_info": {
-    "favorite_subjects": ["maths", "arts"],
-    "hobbies": ["sports", "reading"]
+    "favorite_subjects": ["maths", "history"],
+    "hobbies": ["reading", "music"]
   }
 }
 """
@@ -97,7 +97,7 @@ def analyze_career_path(assessment_df):
         f"Favorite Subjects: {', '.join(assessment_df['additional_info'][0]['favorite_subjects'])}\n"
         f"Hobbies: {', '.join(assessment_df['additional_info'][0]['hobbies'])}\n"
         f"Recommend a Career Path out of the following options:(Astronaut/Scientist/Doctor) based on their responses and ASD considerations\n"
-        f"ONLY respond with the recommended career path. Do not add any explanation."
+        f"ONLY respond with the recommended career path and only one. Do not add any explanation."
     )
     messages = [
         {
