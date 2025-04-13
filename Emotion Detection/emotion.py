@@ -70,12 +70,7 @@ def detect_emotion():
                     # Display the current emotion count
                     cv2.putText(frame, f'Detections: {len(detected_emotions)}', 
                                (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-                    
-                    # Display FPS
-                    fps = frame_count / (time.time() - start_time)
-                    cv2.putText(frame, f'FPS: {fps:.1f}', (10, 60), 
-                               cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-                    
+                           
                     # Display most common emotion so far
                     if detected_emotions:
                         emotion_counter = Counter(detected_emotions)
